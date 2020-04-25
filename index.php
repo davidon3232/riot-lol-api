@@ -1,4 +1,4 @@
-<?php include('includes/header.php') ?>
+<?php include('inc/header.php') ?>
 <div class="s013">
     <form>
         <fieldset>
@@ -30,4 +30,4 @@
         </div>
     </form>
 </div>
-<?php include('includes/footer.php') ?>
+<?php include('inc/footer.php') ?>
