@@ -1,12 +1,13 @@
-<?php include('config.php'); ?>
-<html>
-    <head>
-        <title>Invocador</title>
-    </head>
-    <body>
-        <h1>invocador</h1>
-        <?php 
-         $urlAmigavel = new UrlAmigavel();
-         var_dump($urlAmigavel->getParameter(2));die; ?>
-    </body>
-</html>
+<?php
+include('inc/header.php');
+$a = new Summoner();
+var_dump($a->getSummoner());
+?>
+<h1>invocador</h1>
+<?php
+$urlAmigavel = new UrlAmigavel();
+var_dump($urlAmigavel->getParameter(2));
+die;
+?>
+<?php include('inc/footer.php') ?>
+

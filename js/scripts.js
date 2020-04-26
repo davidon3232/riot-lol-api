@@ -1,8 +1,7 @@
 $(document).on('click', '.btn-search', function (e) {
     e.preventDefault();
     if ($('#form-search').valid()) {
-        var formData;
-        var region = $('input[name="region"]').val();
+        var region = $('#region option:selected').val();
         var keyword = $('input[name="keyword"]').val();
         $.ajax({
             url: 'ajax/treatSearch',
@@ -13,7 +12,7 @@ $(document).on('click', '.btn-search', function (e) {
             },
             dataType: 'JSON',
             success: function(data) {
-                location.href = 'invocador/' + keyword;
+                location.href = 'invocador/' + data;
             },
             error: function(data){
 

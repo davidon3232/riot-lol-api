@@ -1,7 +1,4 @@
-<?php include('inc/header.php');
-$a = new Summoner();
-var_dump($a->getSummoner());
-?>
+<?php include('inc/header.php'); ?>
 <div class="s013">
     <form method="POST" id="form-search">
         <fieldset>
@@ -20,10 +17,18 @@ var_dump($a->getSummoner());
                         <label class="form-label">Region</label>
                         <div class="input-select">
                             <select id="region" data-trigger="" name="region" required>
-                                <option>1 adult</option>
-                                <option>2 adults</option>
-                                <option>3 adults</option>
-                                <option>4 adults</option>
+                                <option value="">Regions</option>
+                                <option value="BR1">Brazil</option>
+                                <option value="KR">Korea</option>
+                                <option value="JP1">Japan</option>
+                                <option value="NA1">North America</option>
+                                <option value="EUW1">Europe West</option>
+                                <option value="EUN1">Europe Nordic</option>
+                                <option value="OC1">Oceania</option>
+                                <option value="LA1">Lan</option>
+                                <option value="LA2">Las</option>
+                                <option value="RU">Russia</option>
+                                <option value="TR1">Turkey</option>
                             </select>
                         </div>
                     </div>
