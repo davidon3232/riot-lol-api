@@ -6,3 +6,6 @@ spl_autoload_register(function($class_name) {
         require_once($filename);
     }
 });
+
+define('PLATAFORM' , 'https://br1.api.riotgames.com');
+define('API_KEY', 'RGAPI-4e42bade-bcb8-434d-abef-289f6bbd37f8');

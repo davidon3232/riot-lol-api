@@ -876,7 +876,7 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  background: url("../images/lol-background.jpg");
+  background: url("../images/lol-background.png");
   background-size: cover;
   background-position: center center;
   padding: 15px;
@@ -922,7 +922,7 @@ legend {
   padding: 20px 25px 20px 25px;
 }
 
-.s013 form .inner-form .input-wrap .input-field label {
+.form-label{
   font-size: 11px;
   font-weight: 500;
   display: block;
@@ -1101,4 +1101,11 @@ legend {
   }
 }
 
+.error{
+    font-weight: 500;
+    display: block;
+    padding-left: 0px;
+    color: white;
+    margin-bottom: 9px;
+}
 /*# sourceMappingURL=Searchs_013.css.map */
