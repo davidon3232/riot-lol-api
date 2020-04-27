@@ -1,6 +1,6 @@
 $(document).on('click', '.btn-search', function (e) {
     e.preventDefault();
-    if ($('#form-search').valid()) {
+    if ($('.form-search').valid()) {
         var region = $('#region option:selected').val();
         var keyword = $('input[name="keyword"]').val();
         $.ajax({

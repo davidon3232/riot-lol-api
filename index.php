@@ -1,6 +1,6 @@
 <?php include('inc/header.php'); ?>
 <div class="s013">
-    <form method="POST" id="form-search">
+    <form class="form-search" method="POST">
         <fieldset>
             <legend>SEARCH FOR YOUR SUMMONER INFOS</legend>
         </fieldset>

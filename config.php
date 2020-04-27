@@ -10,5 +10,5 @@ spl_autoload_register(function($class_name) {
     }
 });
 
-define('PLATAFORM' , 'https://br1.api.riotgames.com');
-define('API_KEY', 'RGAPI-4e42bade-bcb8-434d-abef-289f6bbd37f8');
+define('BASE' , 'http://localhost/riot-lol-api/');
+define('API_KEY', 'RGAPI-c707ca1f-a1e5-46c4-94b8-9a379b410991');

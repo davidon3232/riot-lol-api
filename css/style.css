@@ -1108,4 +1108,235 @@ legend {
     color: white;
     margin-bottom: 20px;
 }
-/*# sourceMappingURL=Searchs_013.css.map */
+.limite-site{
+    display: block;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-topo{
+    padding-top:10px;
+}
+
+.profile-box{
+    padding: 15px;
+    margin-bottom: 1rem;
+    background: rgb(32, 43, 67);
+    border-radius: 5px;
+    color: white;
+    height: 100%;
+}
+.profile-level-second p{
+    color: rgb(121, 134, 163);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.logo{
+    width: 160px;
+}
+
+.profile-box h1{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.25px;
+    margin: 0px;
+}
+
+.navbar{
+    background-color: rgb(14, 23, 38) !important;
+}
+
+.form-topo{
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: text;
+    height: 38px;
+    position: relative;
+    width: 360px;
+    outline: none;
+    border-radius: 8px;
+    background: rgb(39, 53, 82);
+}
+
+.profile-icon{
+    position: relative;
+    height: 80px;
+    background-color: rgb(32, 43, 67);
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(32, 43, 67);
+    border-image: initial;
+    border-radius: 50%;
+}
+
+.profile-icon-div{
+    margin-right: 18px;
+    position: relative;
+    max-width: 150px;
+}
+
+.profile-icon-second{
+    box-sizing: border-box;
+    position: relative;
+    padding: 2px;
+    background: rgb(52, 63, 87);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.15s ease 0s;
+}
+.profile-level-div{
+    display: block;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    right: -0.25rem;
+    height: 40px;
+    width: 40px;
+    background: rgb(19, 28, 46);
+    border-radius: 50%;
+}
+.profile-level-div p{
+    margin-top: 7px;
+    margin-left: 6px;
+}
+
+.profile-level-second{
+    margin-top:20px;
+}
+
+.form-top {
+    padding-top:17px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.eidRwp {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-top-div {
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: text;
+    height: 38px;
+    position: relative;
+    width: 360px;
+    outline: none;
+    border-radius: 8px;
+    background: rgb(39, 53, 82);
+}
+.form-top-div i{
+    height: 18px;
+    width: 15px;
+    margin: 0px 8px 0px 4px;
+    color: rgb(121, 134, 163);
+}
+
+.form-top-div input[type="text"]{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 1rem;
+    color: rgb(137, 160, 181);
+    width: 75%;
+    background-color:transparent;
+    border:none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.btn-btn{
+    border: none;
+    background-color: transparent;
+}
+
+.form-top-div input:focus, select:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.search-input {
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 1rem;
+    color: rgb(137, 160, 181);
+    width: 75%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.region {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: auto;
+    height: 28px;
+    pointer-events: all;
+    border-radius: 3px;
+    background: rgb(19, 28, 46);
+    padding: 0px 8px;
+}
+
+.region p{
+    color:white;
+    padding-top: 15px;
+}
+
+.profile-league-title{
+    color: rgb(121, 134, 163);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.profile-league-title-flex{
+    color: rgb(121, 134, 163);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.50rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+    text-transform: uppercase;
+}

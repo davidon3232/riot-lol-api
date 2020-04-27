@@ -5,7 +5,7 @@ class Util
 
     public static function transformToUrl($string)
     {
-        $from = 'ÀÁÃÂÉÊÍÓÕÔÚÜÇàáãâéêíóõôúüçÇ /#$|?&';
+        $from = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ /#$|?&';
         $to = 'AAAAEEIOOOUUCaaaaeeiooouucC------e';
         $string = str_replace('--', '-', strtr($string, $from, $to));
         $string = preg_replace('/[^a-zA-Z0-9-\s]/', '', trim(strtolower($string)));
@@ -33,6 +33,18 @@ class Util
                 self::utf8_encode_deep($input->$var);
             }
         }
+    }
+    
+    static function dateDif($date_ini, $date_end) { // v 1.0 intervalo
+        if (strcmp(substr($date_ini, 2, 1), "/") == 0) {
+            $date_ini = substr($date_ini, 6, 4) . substr($date_ini, 2, 4) . substr($date_ini, 0, 2);
+            $date_end = substr($date_end, 6, 4) . substr($date_end, 2, 4) . substr($date_end, 0, 2);
+        }
+        $initial_date = getdate(strtotime($date_ini));
+        $final_date = getdate(strtotime($date_end));
+
+        $dif = ($final_date['0'] - $initial_date['0']) / 86400;
+        return $dif;
     }
 
 }
