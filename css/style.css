@@ -1122,11 +1122,32 @@ legend {
 .profile-box{
     padding: 15px;
     margin-bottom: 1rem;
-    background: rgb(32, 43, 67);
+    background: linear-gradient(to top, rgb(39, 54, 82) 0%, rgb(32, 43, 67) 100%);
     border-radius: 5px;
     color: white;
     height: 100%;
 }
+
+.profile-box-2{
+   padding: 15px;
+    background: linear-gradient(to top, rgb(39, 54, 82) 0%, rgb(32, 43, 67) 100%);
+    color: white;
+    width: 100%;    
+    height: 100%;
+    border-top-left-radius: 6px 8px;
+    border-top-right-radius: 6px 8px;
+}
+
+.profile-box-3{
+    padding: 0px;
+    color: white;
+    width: 100%;
+    background: rgb(32, 43, 67);
+    height: auto;
+    border-top-left-radius: 6px 8px;
+    border-top-right-radius: 6px 8px;
+}
+
 .profile-level-second p{
     color: rgb(121, 134, 163);
     box-sizing: border-box;
@@ -1137,6 +1158,18 @@ legend {
     margin: 0px;
 }
 
+.profile-tier-primary p{
+    color: rgb(121, 134, 163);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+}
+.profile-tier-primary{
+    margin-top:5px;
+}
 .logo{
     width: 160px;
 }
@@ -1226,10 +1259,6 @@ legend {
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-}
-.eidRwp {
-    display: flex;
-    flex-direction: column;
 }
 
 .form-top-div {
@@ -1339,4 +1368,286 @@ legend {
     font-weight: 700;
     margin: 0px;
     text-transform: uppercase;
+}
+
+.row{
+    margin: 0px 0px 12px 0px;
+}
+
+.unranked{
+    padding-top: 20px;
+}
+
+.rank-title{
+    color: rgb(121, 134, 163);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+    padding-bottom:10px;
+}
+
+.champs-play-title{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+
+}
+
+.champ-played-ol{
+    background: rgb(32, 43, 67);
+    width: 100%;
+    margin: 0px;
+    padding: 0.75rem 0px 0px;
+    list-style: none;
+}
+
+.champ-played-ol li{
+    display: block;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    padding: 0px;
+    overflow: hidden;
+    transition: background 0.15s ease 0s;
+}
+
+.champ-img-div{
+    width: 36px;
+    height: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: rgb(19, 28, 46);
+}
+
+.champ-img-div img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.champ-title-style{
+    color: white;
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+}
+
+.champ-div-style{
+    display: block;
+    margin-left: 0.75em;
+    margin-top: -5px;
+}
+
+.champ-div-style._2{
+    display: block;
+    margin-left: 1.75em;
+    margin-top: -5px;
+}
+    
+.quantity-color{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+    color: rgb(137, 160, 181);
+}
+
+.champ-link{
+    padding: 10px 10px 0px 10px;
+    display: block;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s ease 0s;
+}
+
+.champ-link:hover{
+    text-decoration: none;
+    background: rgb(39, 53, 82);
+}
+
+.quantity-color-2{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+    color: rgb(196, 168, 137);
+}
+
+.show-more-button{
+    color: rgb(121, 134, 163) !important;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background: rgb(24, 35, 56);
+    border-radius: 5px;
+    transition: all 0.15s ease 0s;
+}
+
+.show-more-button-div{
+    background: rgb(32, 43, 67);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1em 1.5em 1.5em;
+    border-bottom-left-radius: 6px 8px;
+    border-bottom-right-radius: 6px 8px;
+}
+
+.show-more-button:hover{
+    color: rgb(137, 160, 181);
+    background: rgb(39, 53, 82);
+}
+
+.fa-angle-right{
+    float: right;
+    font-size: 22px !important;
+}
+
+.match-h-header{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+    padding-bottom: 11px;
+    padding-left: 11px;
+}
+
+.match-h-header p{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.quantity-color-3{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-weight: normal !important;
+    font-style: normal;
+    margin: 0px;
+    color: rgb(196, 168, 137);
+}
+
+.match-h-header-div{
+    padding-right: 15px;
+}
+
+.top-stat{
+    display: flex;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+}
+
+.top-stat-porcent{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0px;
+    padding-right: 5px;
+    color: rgb(255, 88, 89) !important;
+}
+
+.top-stat-wl{
+    color: rgb(137, 160, 181);
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+}
+
+.top-stat-kda{
+    box-sizing: border-box;
+    padding-top: 2px;
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0px;
+    color: rgb(196, 168, 137);
+}
+
+.champ-stat-header{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    flex: 1 1 0%;
+}
+
+.champ-stat-div-h{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: 12px;
+
+}
+
+.first-stat-header{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    flex: 1 1 0%;
+    margin: 1.25rem 0px;
+}
+
+.main-stat-header{
+    padding: 0px;
+    width: 100%;
+    display: block;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    box-shadow: rgba(229, 235, 239, 0.05) 0px -1px inset;
+    min-height: 56px;
+    position: sticky;
+    top: 52px;
+    z-index: 3;
+    background: linear-gradient(to top, rgb(39, 54, 82) 0%, rgb(32, 43, 67) 100%);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.margin-bottom-right{
+    margin-bottom: 10px;
+    margin-right: 10px;
 }

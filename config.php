@@ -11,4 +11,4 @@ spl_autoload_register(function($class_name) {
 });
 
 define('BASE' , 'http://localhost/riot-lol-api/');
-define('API_KEY', 'RGAPI-c707ca1f-a1e5-46c4-94b8-9a379b410991');
+define('API_KEY', 'RGAPI-736dc35b-4e90-4f36-816f-00f39bbcb329');
