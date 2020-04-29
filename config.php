@@ -2,7 +2,7 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-
+set_time_limit(1200);
 spl_autoload_register(function($class_name) {
     $filename = "class" . DIRECTORY_SEPARATOR . $class_name . ".php";
     if (file_exists(($filename))) {
@@ -11,4 +11,4 @@ spl_autoload_register(function($class_name) {
 });
 
 define('BASE' , 'http://localhost/riot-lol-api/');
-define('API_KEY', 'RGAPI-736dc35b-4e90-4f36-816f-00f39bbcb329');
+define('API_KEY', 'RGAPI-34cd76a1-9545-48c1-995c-9f4798bf14e3');

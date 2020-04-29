@@ -9,9 +9,10 @@ class Matches{
     const MATCHES_LIST_BY_ACCOUNTID =  '/lol/match/v4/matchlists/by-account/';
     const MATCH_BY_MATCHID =  '/lol/match/v4/matches/';
       
-    public function getMatchesByAccountId($accountId)
+    public function getMatchesByAccountId($accountId,$endIndex,$beginIndex)
     {
-        $url = 'https://' .$_SESSION['region'] . self::MATCHES_LIST_BY_ACCOUNTID . $accountId .  '?api_key=' . API_KEY . '&?champion=30';
+        $params = '&endIndex='.$endIndex.'&beginIndex='.$beginIndex;
+        $url = 'https://' .$_SESSION['region'] . self::MATCHES_LIST_BY_ACCOUNTID . $accountId .  '?api_key=' . API_KEY . '&?champion=30'.$params;
         $response = Curl::send($url);
         return $response;
         

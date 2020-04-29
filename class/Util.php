@@ -49,7 +49,7 @@ class Util
     
     public static function transformRomanToNumber($league){
         $division = '';
-        switch ($league['rank']) {
+        switch ($league) {
             case "I":
                 $division = 1;
                 break;
@@ -68,21 +68,24 @@ class Util
         return $division;
     }
     
+    public static function getQueueType($id){
+        switch ($id) {
+            case 420: return "Ranqueada Solo";
+                break;
+            case 400: return "Ranqueada Flex";
+                break;
+        }
+            
+    }
+    
     public static function porcentagem ( $parcial, $total ) {
         return number_format(( $parcial * 100 ) / $total, 1, ',', ' ');
     }
     
-    public static function searchForId($array)
-    {
-        foreach ($array as $key => $val) {
-            if ($val['champion'] == $id) {
-                echo $i++;
-            }
-        }
-        return null;
+    public static function calcAMA ($ka, $d ) {
+        return number_format(( $ka ) / $d, 1, ',', ' ');
     }
     
-
     public static function ChIDToName($id)
     {
         switch ($id) {
@@ -322,6 +325,8 @@ class Util
                 break;
             case 53: return "Blitzcrank";
                 break;
+            case 875: return "Sett";
+                break;
             case 98: return "Shen";
                 break;
             case 201: return "Braum";
@@ -354,5 +359,38 @@ class Util
                 break;
         }
     }
-
+    
+    public static function array_search_id($search_value, $array, $id_path = array('$'))
+    {
+        if (is_array($array) && count($array) > 0) {
+            foreach ($array as $key => $value) {
+                $temp_path = $id_path;
+                array_push($temp_path, $key);
+                if (is_array($value) && count($value) > 0) {
+                    $res_path = self::array_search_id($search_value, $value, $temp_path);
+                    if ($res_path != null) {
+                        return $res_path;
+                    }
+                } else if ($value == $search_value) {
+                    return $temp_path;
+                }
+            }
+        }else{
+            return null;
+        }
+      
+    }
+    
+    public static function findAllOfTeam($summoners,$teamId){
+        $totalKills = 0;
+        $totalDamageToChamps = 0;
+        $array = array();
+        foreach($summoners as $key => $summoner){
+            if ($summoner['teamId'] == $teamId) {
+                    $totalKills += $summoner['stats']['kills'];
+                    $totalDamageToChamps += $summoner['stats']['totalDamageDealtToChampions'];
+                }
+            }
+            return array('totalKills' => $totalKills, 'totalDamageToChamps' => $totalDamageToChamps);
+        }
 }
