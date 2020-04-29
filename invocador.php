@@ -201,7 +201,8 @@ foreach ($matches['matches'] as $value) {
                     <div class="padding-children">
                         <?php
                         foreach ($allMatchs as $match) {
-                            if ($match['gameDuration'] > 399) {
+                            if ($match['gameDuration'] > 399 && $match['gameMode'] != 'ONEFORALL') {
+                         
                                 $key = Util::array_search_id($summoner['id'], $match['participantIdentities']);
                                 $allTeam = Util::findAllOfTeam($match['participants'], $match['participants'][$key[1]]['teamId']);
                                 $champName = Util::ChIDToName($match['participants'][$key[1]]['championId']);

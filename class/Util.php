@@ -72,7 +72,15 @@ class Util
         switch ($id) {
             case 420: return "Ranqueada Solo";
                 break;
-            case 400: return "Ranqueada Flex";
+            case 440: return "Ranqueada Flex";
+                break;
+            case 400: return "Normal";
+                break;
+            case 430: return "Normal";
+                break;
+            case 450: return "ARAM";
+                break;
+            case 900: return "URF";
                 break;
         }
             
@@ -330,6 +338,8 @@ class Util
             case 98: return "Shen";
                 break;
             case 201: return "Braum";
+                break;
+            case 350: return "Yuumi";
                 break;
             case 5: return "Xin Zhao";
                 break;
