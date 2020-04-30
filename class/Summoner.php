@@ -1,4 +1,5 @@
 <?php
+use GuzzleHttp\Client;
 
 Class Summoner{
     
@@ -16,9 +17,13 @@ Class Summoner{
     public function getSummonerByName()
     {
         $summonerName = $this->urlAmigavel->getParameter(2);
-        $url = 'https://' .$_SESSION['region'] . self::SUMMMONER_BY_NAME . $summonerName .  '?api_key=' . API_KEY;
-        $response = Curl::send($url);
-        return $response;
+        $client = new Client();
+        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://' .$_SESSION['region'] . self::SUMMMONER_BY_NAME . $summonerName .  '?api_key=' . API_KEY);
+        $promise = $client->sendAsync($request)->then(function ($response) {
+            return json_decode($response->getBody()->getContents(),true);
+        });
+
+        return $promise->wait();
         
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 Class Leagues{
     
     public function __construct()
@@ -16,9 +18,13 @@ Class Leagues{
       
     public function getLeagueBySummonerId($accountId)
     {
-        $url = 'https://' .$_SESSION['region'] . self::LEAGUE_BY_SUMMONER_ID . $accountId .  '?api_key=' . API_KEY;
-        $response = Curl::send($url);
-        return $response;
+        $client = new Client();
+        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://' .$_SESSION['region'] . self::LEAGUE_BY_SUMMONER_ID . $accountId .  '?api_key=' . API_KEY);
+        $promise = $client->sendAsync($request)->then(function ($response) {
+            return json_decode($response->getBody()->getContents(),true);
+        });
+
+        return $promise->wait();
         
     }
 }

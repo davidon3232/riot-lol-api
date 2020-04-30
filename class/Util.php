@@ -97,6 +97,8 @@ class Util
     public static function ChIDToName($id)
     {
         switch ($id) {
+            case 246: return "Qiyana";
+                break;
             case 266: return "Aatrox";
                 break;
             case 412: return "Thresh";
@@ -367,6 +369,7 @@ class Util
                 break;
             case 81: return "Ezreal";
                 break;
+            case 498: return "Xayah";
         }
     }
     
@@ -403,4 +406,6 @@ class Util
             }
             return array('totalKills' => $totalKills, 'totalDamageToChamps' => $totalDamageToChamps);
         }
+       
+
 }

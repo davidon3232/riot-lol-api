@@ -1,4 +1,9 @@
 <?php
+require 'vendor/autoload.php';
+
+header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -11,4 +16,4 @@ spl_autoload_register(function($class_name) {
 });
 
 define('BASE' , 'http://localhost/riot-lol-api/');
-define('API_KEY', 'RGAPI-34cd76a1-9545-48c1-995c-9f4798bf14e3');
+define('API_KEY', 'RGAPI-b0acf83c-7b3c-4faf-878b-27d1f6a66076');
