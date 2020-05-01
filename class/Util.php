@@ -99,6 +99,8 @@ class Util
         switch ($id) {
             case 246: return "Qiyana";
                 break;
+            case 517: return "Sylas";
+                break;
             case 266: return "Aatrox";
                 break;
             case 412: return "Thresh";
@@ -239,7 +241,7 @@ class Util
                 break;
             case 429: return "Kalista";
                 break;
-            case 36: return "Dr. Mundo";
+            case 36: return "Dr Mundo";
                 break;
             case 427: return "Ivern";
                 break;
@@ -255,7 +257,7 @@ class Util
                 break;
             case 154: return "Zac";
                 break;
-            case 421: return "Rek'Sai";
+            case 421: return "RekSai";
                 break;
             case 133: return "Quinn";
                 break;

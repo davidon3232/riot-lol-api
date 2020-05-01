@@ -27,20 +27,22 @@ class Matches
         return $promise->wait();
     }
 
-    public function getMatchByMatchId($matchId)
-    {
-        $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $matchId . '?api_key=' . API_KEY;
+    public function getMatchByMatchId($allMatches)
+    {   
         $client = new Client();
-        $request = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            return json_decode($response->getBody()->getContents(),true);
-        });
-
-        return $promise->wait();
-
+        $promises = [];
+        foreach ($allMatches as $value) {
+            $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $value['gameId'] . '?api_key=' . API_KEY;
+            $request = new \GuzzleHttp\Psr7\Request('GET', $url);
+                $promises[] = $client->sendAsync($request)->then(function ($response) {
+                return json_decode($response->getBody()->getContents(),true);
+            });
+        }
+        $combinedPromise = \GuzzleHttp\Promise\all($promises);
+        return $combinedPromise->wait();
     }
     
-    public function getCurrentMatch($matchId)
+    public function getOneMatchByMatchId($matchId)
     {
         $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $matchId . '?api_key=' . API_KEY;
         $client = new Client();

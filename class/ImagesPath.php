@@ -20,6 +20,7 @@ Class ImagesPath
     }
     
     public static function getChampSplasArt($name){
+        $name = str_replace(' ', '',$name);
         return 'style="background-image: url('.BASE.'images/splash/'.$name.'_0.jpg)"';
     }
 

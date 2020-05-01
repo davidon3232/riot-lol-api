@@ -16,7 +16,11 @@ Class Summoner{
     
     public function getSummonerByName()
     {
-        $summonerName = $this->urlAmigavel->getParameter(2);
+        $summonerName = $_SESSION['summonerName'];
+        if($this->urlAmigavel->getParameter(1) != 'ajax'){
+            $summonerName = $this->urlAmigavel->getParameter(2);
+        }
+        
         $client = new Client();
         $request = new \GuzzleHttp\Psr7\Request('GET', 'https://' .$_SESSION['region'] . self::SUMMMONER_BY_NAME . $summonerName .  '?api_key=' . API_KEY);
         $promise = $client->sendAsync($request)->then(function ($response) {

@@ -19,45 +19,30 @@ $(document).on('click', '.btn-search', function (e) {
             }
         });
     }
-})
+});
 
 $(document).on('click', '.load-more', function (e) {
-    var inicialIndex = $('.profile-match').length
-    var finalIndex = inicialIndex + 5;
+    var inicialIndex = $('.profile-match').length;
+    var finalIndex = inicialIndex + 10;
     $.ajax({
-        type: "GET",
-        url: "https://br1.api.riotgames.com/lol/match/v4/matchlists/by-account/v8-SBdvKdbrFYc5q8fP9qq2v_Bvk8EW7UEJVisioIfE?api_key=RGAPI-b0acf83c-7b3c-4faf-878b-27d1f6a66076&?champion=30&endIndex="+finalIndex+"&beginIndex="+inicialIndex,
-        dataType: "json",
-        beforeSend: function(){
-         $(".load-more").html("<div class='div-load-more'><img style='margin-top:-16px' width='70px' heigth='70px' src='http://localhost/riot-lol-api/images/loading.gif'></div>");
+        url: "ajax/getMoreMatchs",
+        type: "POST",
+        data: {
+            beginIndex : inicialIndex,
+            finalIndex : finalIndex
         },
-        success: function (result, status, xhr) {
-          getGame(result);
+        dataType: "JSON",
+        beforeSend: function(){
+         $(".load-more").html("<div class='div-load-more-loading'><img style='margin-top:-16px' width='70px' heigth='70px' src='http://localhost/riot-lol-api/images/loading.gif'></div>");
+        },
+        success: function (data) {
+            console.log(data);
+          $("#match-history").append(data);
           $(".load-more").html("<div class='div-load-more'>Carregar mais</div>");
         },
         error: function (xhr, status, error) {
-            alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+            console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
     });
 });
 
-function getGame(result) {
-    var i;
-    for ($i = 0; $i < result['matches'].length; $i++) {
-        $.ajax({
-            type: "GET",
-            url: "https://br1.api.riotgames.com/lol/match/v4/matches/" + result['matches'][$i]['gameId'] + "?api_key=RGAPI-b0acf83c-7b3c-4faf-878b-27d1f6a66076&",
-            dataType: "json",
-            beforeSend: function () {
-                $(".load-more").html("<div class='div-load-more'><img style='margin-top:-16px' width='70px' heigth='70px' src='http://localhost/riot-lol-api/images/loading.gif'></div>");
-            },
-            success: function (result, status, xhr) {
-                console.log(result);
-                $(".load-more").html("<div class='div-load-more'>Carregar mais</div>");
-            },
-            error: function (xhr, status, error) {
-                alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-            }
-        });
-    }
-}

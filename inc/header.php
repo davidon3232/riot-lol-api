@@ -1,7 +1,8 @@
 <?php include('config.php') ?>
 <html>
     <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <base href="<?= BASE ?>">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>

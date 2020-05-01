@@ -1,4 +1,4 @@
-<?php include('inc/header.php'); ?>
+<?php include('inc/header.php');?>
 <div class="s013">
     <form class="form-search" method="POST">
         <fieldset>

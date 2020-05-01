@@ -1,11 +1,8 @@
 <?php
 include('inc/header.php');
+
 $summonerObj = new Summoner();
-$summoner = $summonerObj->getSummonerByName();
-
 $leagueObj = new Leagues();
-$league = $leagueObj->getLeagueBySummonerId($summoner['id']);
-
 $matchesObj = new Matches();
 
 //$championsObj = new Champions();
@@ -33,6 +30,7 @@ $matchesObj = new Matches();
         </div>
     </form>
 </nav>
+<?php $summoner = $summonerObj->getSummonerByName(); ?>
 <div class="container container-topo">
     <div class="row">
         <div class="col-md-4">

@@ -1,4 +1,5 @@
 <?php
+require '../vendor/autoload.php';
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -10,5 +11,8 @@ spl_autoload_register(function($class_name) {
         require_once($filename);
     }
 });
+
+define('BASE', 'http://' . $_SERVER['SERVER_NAME'] . '/riot-lol-api/');
+define('API_KEY', 'RGAPI-b0acf83c-7b3c-4faf-878b-27d1f6a66076');
 
 

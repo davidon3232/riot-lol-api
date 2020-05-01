@@ -52,19 +52,12 @@
         </div>
     </div>
     <div class="match-body">
-        <div class="padding-children">
+        <div id="match-history" class="padding-children">
             <?php
-            $matches = $matchesObj->getMatchesByAccountId($summoner['accountId'], 5, 0);
-
-            $allMatchs = array();
-
-            foreach ($matches['matches'] as $value) {
-                $match = $matchesObj->getMatchByMatchId($value['gameId']);
-                array_push($allMatchs, $match);
-            }
+            $matches = $matchesObj->getMatchesByAccountId($summoner['accountId'], 1, 0);
+            $allMatchs = $matchesObj->getMatchByMatchId($matches['matches']);
             foreach ($allMatchs as $match) {
                 if ($match['gameDuration'] > 399 && $match['gameMode'] != 'ONEFORALL') {
-
                     $key = Util::array_search_id($summoner['id'], $match['participantIdentities']);
                     $allTeam = Util::findAllOfTeam($match['participants'], $match['participants'][$key[1]]['teamId']);
                     $champName = Util::ChIDToName($match['participants'][$key[1]]['championId']);
