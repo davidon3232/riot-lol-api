@@ -1,6 +1,7 @@
 {
     "require": {
         "guzzlehttp/guzzle": "~6.0@dev",
-        "kevinrob/guzzle-cache-middleware": "^3.3"
+        "kevinrob/guzzle-cache-middleware": "^3.3",
+        "symfony/cache": "^4.4"
     }
 }

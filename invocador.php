@@ -17,7 +17,7 @@ $matchesObj = new Matches();
 //Util::searchForId($matches['matches'])
 ?>
 <nav class="navbar bg-dark navbar-dark">
-    <img class="logo" src="http://localhost/riot-lol-api/images/logo.png">
+    <img class="logo" src="images/logo.png">
     <form class="form-top form-search" method="POST">
         <div class="form-top-div">
             <input type="text" name="keyword" placeholder="Buscar Invocador"  class="input-search">

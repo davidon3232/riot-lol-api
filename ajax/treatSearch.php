@@ -1,6 +1,6 @@
 <?php
 
-require_once('ajax.Header.php');
+require_once('../config.php');
 
 $region = $_POST['region'];
 $_SESSION['region'] = Regions::setRegion($region);

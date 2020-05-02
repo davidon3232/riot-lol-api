@@ -22,7 +22,7 @@ $(document).on('click', '.btn-search', function (e) {
 });
 
 $(document).on('click', '.load-more', function (e) {
-    var inicialIndex = $('.profile-match').length;
+    var inicialIndex = $('.profile-match').length + 1;
     var finalIndex = inicialIndex + 10;
     $.ajax({
         url: "ajax/getMoreMatchs",

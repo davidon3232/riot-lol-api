@@ -109,6 +109,8 @@ class Util
                 break;
             case 79: return "Gragas";
                 break;
+            case 555: return "Senna";
+                break;
             case 69: return "Cassiopeia";
                 break;
             case 136: return "Aurelion Sol";
@@ -156,6 +158,8 @@ class Util
             case 74: return "Heimerdinger";
                 break;
             case 238: return "Zed";
+                break;
+            case 145: return "Kaisa";
                 break;
             case 68: return "Rumble";
                 break;
@@ -399,14 +403,23 @@ class Util
     public static function findAllOfTeam($summoners,$teamId){
         $totalKills = 0;
         $totalDamageToChamps = 0;
-        $array = array();
+        $wins = 0;
+        $looses = 0;
         foreach($summoners as $key => $summoner){
             if ($summoner['teamId'] == $teamId) {
+                    $summoner['stats']['win'] === true ? $wins += 1 : $looses += 1;
                     $totalKills += $summoner['stats']['kills'];
                     $totalDamageToChamps += $summoner['stats']['totalDamageDealtToChampions'];
                 }
             }
-            return array('totalKills' => $totalKills, 'totalDamageToChamps' => $totalDamageToChamps);
+            $stats = array(
+                'totalKills' => $totalKills, 
+                'totalDamageToChamps' => $totalDamageToChamps,
+                'wins' => $wins ,
+                'looses' => $looses
+            );
+
+            return $stats;
         }
        
 

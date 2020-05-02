@@ -1,10 +1,14 @@
+<?php 
+$matches = $matchesObj->getMatchesByAccountId($summoner['accountId'], 14, 0); 
+$allMatchs = $matchesObj->getMatchByMatchId($matches['matches']);
+?>
 <div class="row profile-box-3">
     <div class="main-stat-header">
         <div class="first-stat-header">
             <div class="match-h-header">
                 <div class="match-h-header-div">
                     <p class="champ-title-style">20V 23D</p>
-                    <p class="quantity-color"><?= 'dasd' ?></p>
+                    <p class="quantity-color">Ultimas <?= count($matches['matches']); ?></p>
                 </div>
                 <div>
                     <p class="quantity-color-3">2,79 KDA</p>
@@ -54,8 +58,6 @@
     <div class="match-body">
         <div id="match-history" class="padding-children">
             <?php
-            $matches = $matchesObj->getMatchesByAccountId($summoner['accountId'], 1, 0);
-            $allMatchs = $matchesObj->getMatchByMatchId($matches['matches']);
             foreach ($allMatchs as $match) {
                 if ($match['gameDuration'] > 399 && $match['gameMode'] != 'ONEFORALL') {
                     $key = Util::array_search_id($summoner['id'], $match['participantIdentities']);
@@ -71,12 +73,6 @@
                                 <div class="profile-match-border lose-border"></div>
                             <?php } ?>
                             <div class="profile-match-image" <?= ImagesPath::getChampSplasArt($champName) ?>>
-                                <div class="match-icon">
-                                    <svg viewBox="0 0 32 32" class="match-svg-icon" fill="white">
-                                    <title>role-specialist</title>
-                                    <path d="M19.179 13.813h8.333c1.006 0 1.822 0.83 1.822 1.853s-0.816 1.853-1.822 1.853h-8.333l4.445 7.703c0.505 0.876 0.217 2.003-0.644 2.517-0.003 0.002-0.007 0.004-0.010 0.006l-0.008 0.005c-0.867 0.51-1.976 0.213-2.483-0.666l-4.479-7.762-4.479 7.762c-0.507 0.879-1.616 1.176-2.483 0.666l-0.008-0.005c-0.864-0.509-1.159-1.633-0.66-2.513 0.002-0.003 0.004-0.007 0.006-0.010l4.445-7.703h-8.333c-1.006 0-1.822-0.83-1.822-1.853s0.816-1.853 1.822-1.853h8.333l-4.445-7.703c-0.505-0.876-0.217-2.003 0.644-2.517 0.003-0.002 0.007-0.004 0.010-0.006l0.008-0.005c0.867-0.51 1.976-0.213 2.483 0.666l4.479 7.762 4.479-7.762c0.507-0.879 1.616-1.176 2.483-0.666l0.008 0.005c0.864 0.509 1.159 1.633 0.66 2.513-0.002 0.003-0.004 0.007-0.006 0.010l-4.445 7.703z"></path>
-                                    </svg>
-                                </div>
                             </div>
                             <div class="profile-match-stats">
                                 <div class="lolmatch-title">

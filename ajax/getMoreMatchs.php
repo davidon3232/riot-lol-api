@@ -1,6 +1,6 @@
 <?php
 
-require_once('ajax.Header.php');
+require_once('../config.php');
 
 $summonerObj = new Summoner();
 $summoner = $summonerObj->getSummonerByName();
@@ -51,7 +51,7 @@ foreach ($allMatches as $match) {
                     </div>
                     <div class="lolmatch-cs">
                         <p class="match-stat-cs">' . number_format(($match['participants'][$key[1]]['stats']['totalMinionsKilled'] + $match['participants'][$key[1]]['stats']['neutralMinionsKilled']) / ($match['gameDuration'] / 60), 1, ".", " ") . ' CS/min.</p>
-                        <p class="match-stat-total-cs">'. $match['participants'][$key[1]]['stats']['totalMinionsKilled'] .'+'. $match['participants'][$key[1]]['stats']['neutralMinionsKilled']. ' CS</p>
+                        <p class="match-stat-total-cs">'. ($match['participants'][$key[1]]['stats']['totalMinionsKilled'] + $match['participants'][$key[1]]['stats']['neutralMinionsKilled']) . ' CS</p>
                     </div>
                     <div class="lolmatch-dmg">
                         <p class="match-stat-damage">' . number_format($match['participants'][$key[1]]['stats']['totalDamageDealtToChampions'] / ($match['gameDuration'] / 60), 0, ".", " ") . ' Dano/min.</p>

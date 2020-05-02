@@ -1,6 +1,12 @@
 <?php
 
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Storage\Psr6CacheStorage;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 
 Class Leagues{
     
@@ -18,7 +24,7 @@ Class Leagues{
       
     public function getLeagueBySummonerId($accountId)
     {
-        $client = new Client();
+        $client = $this->getFileCachedClient();
         $request = new \GuzzleHttp\Psr7\Request('GET', 'https://' .$_SESSION['region'] . self::LEAGUE_BY_SUMMONER_ID . $accountId .  '?api_key=' . API_KEY);
         $promise = $client->sendAsync($request)->then(function ($response) {
             return json_decode($response->getBody()->getContents(),true);
@@ -27,5 +33,35 @@ Class Leagues{
         return $promise->wait();
         
     }
+    
+    private function getFileCachedClient(){
+        
+           $stack = HandlerStack::create();
+           $TTL = 600;
+           
+           $requestCacheFolderName = 'GuzzleFileCache';
+           
+           $cacheFolderPath =  "./cache";
+
+           $cache_storage = new Psr6CacheStorage(
+               new FilesystemAdapter(
+                   $requestCacheFolderName,
+                   $TTL, 
+                   $cacheFolderPath
+               )
+           );
+
+           $stack->push(
+               new CacheMiddleware(
+                   new GreedyCacheStrategy(
+                       $cache_storage,
+                       $TTL 
+                   )
+               ), 
+               'greedy-cache'
+           );
+
+           return new Client(['handler' => $stack]);
+       }
 }
     

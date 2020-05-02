@@ -1,6 +1,12 @@
 <?php
 
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+use Kevinrob\GuzzleCache\Storage\Psr6CacheStorage;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
+use Kevinrob\GuzzleCache\Strategy\GreedyCacheStrategy;
 
 class Matches
 {
@@ -18,7 +24,7 @@ class Matches
     {
         $params = '&endIndex=' . $endIndex . '&beginIndex=' . $beginIndex;
         $url = 'https://' . $_SESSION['region'] . self::MATCHES_LIST_BY_ACCOUNTID . $accountId . '?api_key=' . API_KEY . '&?champion=30' . $params;
-        $client = new Client();
+        $client = $this->getFileCachedClient();
         $request = new \GuzzleHttp\Psr7\Request('GET', $url);
         $promise = $client->sendAsync($request)->then(function ($response) {
             return json_decode($response->getBody()->getContents(),true);
@@ -29,7 +35,7 @@ class Matches
 
     public function getMatchByMatchId($allMatches)
     {   
-        $client = new Client();
+        $client = $this->getFileCachedClient();
         $promises = [];
         foreach ($allMatches as $value) {
             $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $value['gameId'] . '?api_key=' . API_KEY;
@@ -41,11 +47,11 @@ class Matches
         $combinedPromise = \GuzzleHttp\Promise\all($promises);
         return $combinedPromise->wait();
     }
-    
+
     public function getOneMatchByMatchId($matchId)
     {
         $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $matchId . '?api_key=' . API_KEY;
-        $client = new Client();
+        $client = $this->getFileCachedClient();
         $request = new \GuzzleHttp\Psr7\Request('GET', $url);
         $promise = $client->sendAsync($request)->then(function ($response) {
             return json_decode($response->getBody()->getContents(),true);
@@ -74,5 +80,35 @@ class Matches
 
         return $array_out;
     }
+    
+    private function getFileCachedClient(){
+        
+           $stack = HandlerStack::create();
+           $TTL = 600;
+           
+           $requestCacheFolderName = 'GuzzleFileCache';
+           
+           $cacheFolderPath =  "./cache";
+
+           $cache_storage = new Psr6CacheStorage(
+               new FilesystemAdapter(
+                   $requestCacheFolderName,
+                   $TTL, 
+                   $cacheFolderPath
+               )
+           );
+
+           $stack->push(
+               new CacheMiddleware(
+                   new GreedyCacheStrategy(
+                       $cache_storage,
+                       $TTL
+                   )
+               ), 
+               'greedy-cache'
+           );
+
+           return new Client(['handler' => $stack]);
+       }
 
 }
