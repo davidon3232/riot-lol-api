@@ -46,3 +46,8 @@ $(document).on('click', '.load-more', function (e) {
     });
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({
+      html: true
+  })
+})

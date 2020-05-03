@@ -19,6 +19,7 @@ class Matches
     const MATCHES_LIST_BY_ACCOUNTID = '/lol/match/v4/matchlists/by-account/';
     const MATCH_BY_MATCHID = '/lol/match/v4/matches/';
     const CURRENT_MATCH = '/lol/spectator/v4/active-games/by-summoner/';
+    const MATCH_TIMELINE = '/lol/match/v4/timelines/by-match/';
 
     public function getMatchesByAccountId($accountId, $endIndex, $beginIndex)
     {
@@ -51,6 +52,19 @@ class Matches
     public function getOneMatchByMatchId($matchId)
     {
         $url = 'https://' . $_SESSION['region'] . self::MATCH_BY_MATCHID . $matchId . '?api_key=' . API_KEY;
+        $client = $this->getFileCachedClient();
+        $request = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $promise = $client->sendAsync($request)->then(function ($response) {
+            return json_decode($response->getBody()->getContents(),true);
+        });
+
+        return $promise->wait();
+
+    }
+    
+     public function getMatchTimeLineById($matchId)
+    {
+        $url = 'https://' . $_SESSION['region'] . self::MATCH_TIMELINE . $matchId . '?api_key=' . API_KEY;
         $client = $this->getFileCachedClient();
         $request = new \GuzzleHttp\Psr7\Request('GET', $url);
         $promise = $client->sendAsync($request)->then(function ($response) {

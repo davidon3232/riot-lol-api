@@ -24,7 +24,8 @@ Class Summoner{
     {
         $summonerName = $_SESSION['summonerName'];
         if($this->urlAmigavel->getParameter(1) != 'ajax'){
-            $summonerName = $this->urlAmigavel->getParameter(2);
+            $_SESSION['summonerName'] = $summonerName = $this->urlAmigavel->getParameter(2);
+            $summonerName = $_SESSION['summonerName'];
         }
         
         $client = $this->getFileCachedClient();

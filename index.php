@@ -2,19 +2,19 @@
 <div class="s013">
     <form class="form-search" method="POST">
         <fieldset>
-            <legend>SEARCH FOR YOUR SUMMONER INFOS</legend>
+            <legend>Informações do Invocador</legend>
         </fieldset>
         <div class="inner-form">
             <div class="left">
                 <div class="input-wrap first">
                     <div class="input-field first">
-                        <label class="form-label">Summoner Name</label>
+                        <label class="form-label">Nome de invocador</label>
                         <input type="text" id="keyword" name="keyword" placeholder="ex: DavidOn" required>
                     </div>
                 </div>
                 <div class="input-wrap second">
                     <div class="input-field second">
-                        <label class="form-label">Region</label>
+                        <label class="form-label">Região</label>
                         <div class="input-select">
                             <select id="region" data-trigger="" name="region" required>
                                 <option value="">Regions</option>

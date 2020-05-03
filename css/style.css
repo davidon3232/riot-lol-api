@@ -57,6 +57,7 @@ figure {
   margin: 1em 40px;
 }
 a:hover{
+    color:white !important;
     text-decoration:unset !important;
 }
 /**
@@ -938,7 +939,7 @@ legend {
   width: 100%;
   border: 0;
   font-family: 'Lato', sans-serif;
-  padding: 8px 0;
+  padding: 3px 0;
 }
 
 .s013 form .inner-form .input-wrap .input-field input.placeholder {
@@ -972,7 +973,7 @@ legend {
 
 .s013 form .input-select {
   height: 34px;
-  padding: 10px 0 6px 0;
+  padding: 3px 0 6px 0;
 }
 
 .s013 form .choices__inner {
@@ -1998,6 +1999,8 @@ legend {
 .bans-subdiv{
     display: flex;
     z-index: 1;
+    float: right;
+    padding-bottom: 10px;
 }
 
 .bans-champions-div{
@@ -2122,7 +2125,6 @@ legend {
 
 .match-title-team-1{
     color: rgb(73, 180, 255);
-    font-size: 0.75em;
 }
 
 .match-title-team-1 span{
@@ -2235,11 +2237,9 @@ legend {
 
 .player-spells img{
     margin-bottom: 0.25rem;
-    width: 25px !important;
-    height: 25px !important;
+    width: 25px;
+    height: 25px;
     border-radius: 4px;
-    width: 1em;
-    height: 1em;
     border-radius: 3px;
     margin-left: 4px;
     background: rgb(24, 35, 56);
@@ -2413,6 +2413,34 @@ legend {
     background: rgb(7, 14, 29);
 }
 
-.table-order-2:hover > match-players-hiperlink{
+.table-order-2:hover > #detail-match{
     background: rgb(39, 53, 82) !important;
+}
+
+.table-order-2:hover > #detail-match-enemy{
+    background: rgb(39, 53, 82) !important;
+}
+
+.no-elo{
+    font-size: 25px;
+    display: block;
+    width: 1em;
+    height: 1em;
+}
+
+.sub-rune{
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.empty-item{
+    width: 30px;
+    height: 30px;
+    margin: 0px 0.0625rem;
+    border-radius: 4px;
+    background: rgb(7, 14, 29);
+}
+
+.match-title-team-2{
+    color: rgb(255, 88, 89);
 }
