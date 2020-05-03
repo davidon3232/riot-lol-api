@@ -13,11 +13,11 @@ $allMatches = $matchesObj->getMatchByMatchId($matches['matches']);
 $html = '';
 foreach ($allMatches as $match) {
     if ($match['gameDuration'] > 399 && $match['gameMode'] != 'ONEFORALL') {
-        $key = Util::array_search_id($summoner['id'], $match['participantIdentities']);
-        $allTeam = Util::findAllOfTeam($match['participants'], $match['participants'][$key[1]]['teamId']);
-        $champName = Util::ChIDToName($match['participants'][$key[1]]['championId']);
-        $win = $match['participants'][$key[1]]['stats']['win'];
-        $html .= '<a class="profile-hiperlink" href="match/' . $match['participantIdentities'][$key[1]]['player']['summonerName'] . '/' . $match['gameId'] . '">
+        $key = Util::array_search_id($summoner['name'], $match['participantIdentities']);
+        $allTeam = Util::findAllOfTeam($match['participants'], $match['participants'][$key]['teamId']);
+        $champName = Util::ChIDToName($match['participants'][$key]['championId']);
+        $win = $match['participants'][$key]['stats']['win'];
+        $html .= '<a class="profile-hiperlink" href="match/' . $match['participantIdentities'][$key]['player']['summonerName'] . '/' . $match['gameId'] . '">
             <div class="profile-match">';
         if ($win === true) {
             $html .= '<div class="profile-match-border win-border"></div>';
@@ -42,20 +42,20 @@ foreach ($allMatches as $match) {
         $html .= '<p class="match-stat-lose-p">&nbsp;</p>
                     </div>
                     <div class="lolmatch-kda">
-                        <p class="match-stat-kda">' . Util::calcAMA($match['participants'][$key[1]]['stats']['kills'] + $match['participants'][$key[1]]['stats']['assists'], $match['participants'][$key[1]]['stats']['deaths']) . ' AMA</p>
-                        <p class="match-stat-kda-2">' . $match['participants'][$key[1]]['stats']['kills'] . ' / ' . $match['participants'][$key[1]]['stats']['deaths'] . ' / ' . $match['participants'][$key[1]]['stats']['assists'] . '</p>
+                        <p class="match-stat-kda">' . Util::calcAMA($match['participants'][$key]['stats']['kills'] + $match['participants'][$key]['stats']['assists'], $match['participants'][$key]['stats']['deaths']) . ' AMA</p>
+                        <p class="match-stat-kda-2">' . $match['participants'][$key]['stats']['kills'] . ' / ' . $match['participants'][$key]['stats']['deaths'] . ' / ' . $match['participants'][$key]['stats']['assists'] . '</p>
                     </div>
                     <div class="lolmatch-vision">   
-                        <p data-tip="Placar de Visão/Min" data-delay-show="500" class="match-stat-vision">' . number_format($match['participants'][$key[1]]['stats']['visionScore'] / ($match['gameDuration'] / 60), 2, '.', ' ') . ' Vis/min.</p>
-                        <p class="match-stat-vision-substat">' . Util::porcentagem($match['participants'][$key[1]]['stats']['kills'] + $match['participants'][$key[1]]['stats']['assists'], $allTeam['totalKills']) . ' % PA</p>
+                        <p data-tip="Placar de Visão/Min" data-delay-show="500" class="match-stat-vision">' . number_format($match['participants'][$key]['stats']['visionScore'] / ($match['gameDuration'] / 60), 2, '.', ' ') . ' Vis/min.</p>
+                        <p class="match-stat-vision-substat">' . Util::porcentagem($match['participants'][$key]['stats']['kills'] + $match['participants'][$key]['stats']['assists'], $allTeam['totalKills']) . ' % PA</p>
                     </div>
                     <div class="lolmatch-cs">
-                        <p class="match-stat-cs">' . number_format(($match['participants'][$key[1]]['stats']['totalMinionsKilled'] + $match['participants'][$key[1]]['stats']['neutralMinionsKilled']) / ($match['gameDuration'] / 60), 1, ".", " ") . ' CS/min.</p>
-                        <p class="match-stat-total-cs">'. ($match['participants'][$key[1]]['stats']['totalMinionsKilled'] + $match['participants'][$key[1]]['stats']['neutralMinionsKilled']) . ' CS</p>
+                        <p class="match-stat-cs">' . number_format(($match['participants'][$key]['stats']['totalMinionsKilled'] + $match['participants'][$key]['stats']['neutralMinionsKilled']) / ($match['gameDuration'] / 60), 1, ".", " ") . ' CS/min.</p>
+                        <p class="match-stat-total-cs">'. ($match['participants'][$key]['stats']['totalMinionsKilled'] + $match['participants'][$key]['stats']['neutralMinionsKilled']) . ' CS</p>
                     </div>
                     <div class="lolmatch-dmg">
-                        <p class="match-stat-damage">' . number_format($match['participants'][$key[1]]['stats']['totalDamageDealtToChampions'] / ($match['gameDuration'] / 60), 0, ".", " ") . ' Dano/min.</p>
-                        <p class="match-stat-team-damage">' . Util::porcentagem($match['participants'][$key[1]]['stats']['totalDamageDealtToChampions'], $allTeam['totalDamageToChamps']) . '% da equipe</p>
+                        <p class="match-stat-damage">' . number_format($match['participants'][$key]['stats']['totalDamageDealtToChampions'] / ($match['gameDuration'] / 60), 0, ".", " ") . ' Dano/min.</p>
+                        <p class="match-stat-team-damage">' . Util::porcentagem($match['participants'][$key]['stats']['totalDamageDealtToChampions'], $allTeam['totalDamageToChamps']) . '% da equipe</p>
                     </div>
                     <div class="lolmatch-details">
                         <p class="match-stat-time">' . gmdate('i:s', $match['gameDuration']) . '</p>
