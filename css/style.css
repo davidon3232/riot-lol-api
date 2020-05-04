@@ -2444,3 +2444,231 @@ legend {
 .match-title-team-2{
     color: rgb(255, 88, 89);
 }
+
+.modal-content{
+    height: 500px;
+}
+
+.modal-dialog{
+    max-width: 900px !important;
+}
+
+.runes-path-spine {
+    height: 284px;
+    position: absolute;
+    top: 89px;
+    left: 47px;
+}
+
+.modal-body{
+    padding: 35px !important;
+}
+
+.runes-path-precision .runes-path-spine-border {
+    border-color: rgba(200, 170, 110, 0.15);
+}
+
+.runes-path-precision .runes-path-spine-bar {
+    background: rgba(200, 170, 110, 0.3);
+}
+
+.runes-path-spine-bar {
+    width: 4px;
+    height: 100%;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 3px inset;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.runes-path-spine-border {
+    width: 4px;
+    height: 100%;
+    padding: 0px 2px 2px;
+    border-width: 2px 2px 2px;
+    border-style: none solid solid;
+    border-color: rgba(200, 170, 110, 0.2) rgba(200, 170, 110, 0.2) rgba(200, 170, 110, 0.2);
+    border-image: initial;
+    border-top: none;
+}
+
+.runes-path-tree-grid-item-active {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-top: -8px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-image: initial;
+    border-radius: 50%;
+}
+
+.runes-path-tree-icon {
+    width: 106px;
+    height: 96px;
+    left: -32px;
+    position: relative;
+    display: block;;
+}
+.runes-path-tree-grid {
+    float: left;
+    margin-top: 26px;
+    margin-bottom: 40px;
+    display: flex;
+}
+.bhFTCx {
+    width: 24px;
+    height: 24px;
+    opacity: 0.3;
+    filter: saturate(0);
+    cursor: pointer;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    padding: 4px;
+    border-color: transparent;
+    transition: all 0.25s ease 0s;
+}
+.runes-path-tree-grid-item {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    opacity: 0.5;
+    position: relative;
+}
+
+.runes-path-tree-grid-item {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    opacity: 0.5;
+    position: relative;
+}
+
+
+.PathButton__Circles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px;
+}
+.PathButton__Cup {
+    width: 86px;
+    height: 86px;
+    position: absolute;
+    left: 11px;
+    bottom: 8px;
+}
+.bhFTCx {
+    width: 24px;
+    height: 24px;
+    opacity: 0.3;
+    filter: saturate(0);
+    cursor: pointer;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    padding: 4px;
+    border-color: transparent;
+    transition: all 0.25s ease 0s;
+}
+.rune-path--icon {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+}
+
+.rune-detail-img{
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.3;
+    filter: saturate(0);
+    transition: all 0.25s ease 0s;
+}
+
+.rune-detail-img:hover{
+    opacity: 0.9;
+    filter: saturate(1) drop-shadow(rgba(0, 0, 0, 0.5) 0px 9px 10px);
+    transform: translateY(-3px);
+}
+
+.stats-div{
+    margin: 30px;
+    padding-left: 5px;
+}
+
+.stats-div img{
+    opacity: 0.3;
+    filter: saturate(0);
+    transition: all 0.25s ease 0s;
+}
+
+.stats-div img:hover{
+    opacity: 0.9;
+    filter: saturate(1) drop-shadow(rgba(0, 0, 0, 0.5) 0px 9px 10px);
+    transform: translateY(-3px);
+}
+
+.tooltip {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  /* ... */
+}
+
+.popover-header {
+    font-family: "Maison Neue", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(229, 235, 239);
+    margin: 0px;
+    padding: 15px;
+    background: #131C2E !important;
+    color: rgb(243, 204, 87) !important;
+    border-bottom: unset !important;
+}
+
+.popover-body {
+    background: #131C2E !important;
+    padding: 9px 14px;
+    font-size: 13px;
+    color: rgb(121, 134, 163);
+    margin-top: -20px;
+}
+
+.popover span {
+    color: rgb(243, 204, 87) !important;
+}
+

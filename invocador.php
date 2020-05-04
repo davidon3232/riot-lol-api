@@ -84,7 +84,7 @@ $matchesObj = new Matches();
                     <div class="row">
                         <div class="profile-icon-div">
                             <div class="profile-icon-second">
-                                <img class="profile-icon" src="<?= BASE ?>/images/ranks/default.png">
+                                <img class="profile-icon" src="images/ranks/default.png">
                             </div>
                         </div>
                         <div class="profile-tier-primary unranked">

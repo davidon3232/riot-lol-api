@@ -12,4 +12,4 @@ spl_autoload_register(function($class_name) {
 });
 
 define('BASE', 'http://' . $_SERVER['SERVER_NAME'] . '/riot-lol-api/');
-define('API_KEY', 'RGAPI-d713d74d-04ef-43aa-b575-f783b87cd0ac');
+define('API_KEY', 'RGAPI-48458532-9349-41de-9b34-d43260d931c0');

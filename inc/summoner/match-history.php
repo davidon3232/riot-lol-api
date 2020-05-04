@@ -65,7 +65,7 @@ $allMatchs = $matchesObj->getMatchByMatchId($matches['matches']);
                     $champName = Util::ChIDToName($match['participants'][$key]['championId']);
                     $win = $match['participants'][$key]['stats']['win'];
                     ?>
-                    <a class="profile-hiperlink" href="match/<?= $match['participantIdentities'][$key]['player']['summonerName'] ?>/<?= $match['gameId'] ?>">
+                    <a class="profile-hiperlink" href="match/<?= str_replace(' ','+',$match['participantIdentities'][$key]['player']['summonerName']) ?>/<?= $match['gameId'] ?>">
                         <div class="profile-match">
                             <?php if ($win === true) { ?>
                                 <div class="profile-match-border win-border"></div>

@@ -160,6 +160,8 @@ class Util
                 break;
             case 112: return "Viktor";
                 break;
+            case 497: return "Rakan";
+                break;
             case 34: return "Anivia";
                 break;
             case 27: return "Singed";
@@ -386,6 +388,8 @@ class Util
                 break;
             case 38: return "Kassadin";
                 break;
+            case 142; return "Zoe";
+                break;
             case 161: return "VelKoz";
                 break;
             case 143: return "Zyra";
@@ -402,12 +406,15 @@ class Util
                 break;
             case 498: return "Xayah";
                 break;
+            case 516: return "Ornn";
+                break;
             case 141: return "Kayn";
         }
     }
 
     public static function array_search_id($search_value, $array, $id_path = array('$'))
     {
+        $search_value = str_replace('+', ' ', $search_value);
         if (is_array($array) && count($array) > 0) {
             foreach ($array as $key => $value) {
                 $temp_path = $id_path;
@@ -480,6 +487,8 @@ class Util
             case 3: return "SummonerExhaust";
                 break;
             case 21: return "SummonerBarrier";
+                break;
+            case 6: return "SummonerHaste";
                 break;
         }
     }

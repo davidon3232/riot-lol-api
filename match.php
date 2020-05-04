@@ -5,13 +5,184 @@ include('inc/header.php');
 $urlAmigavel = new UrlAmigavel();
 $matchId = $urlAmigavel->getParameter(3);
 
+//$summonerObj = new Summoner();
+//$summoner = $summonerObj->getSummonerByName();
+
 $matchesObj = new Matches();
 $match = $matchesObj->getOneMatchByMatchId($matchId);
 $key = Util::array_search_id($urlAmigavel->getParameter(2), $match['participantIdentities']);
 
+//$var = $matchesObj->getCurrentMatch($summoner['id']);
+//echo'<pre>';print_r($var);die;
+
 $allyTeam = $match['participants'][$key]['teamId'] == 100 ? 0 : 1;
 $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
 ?>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div style="background-image: linear-gradient(to right, rgba(27, 40, 56, 0.5), rgb(27, 40, 56)),url(https://blitz-cdn-web.blitz.gg/assets/static/media/precision.da889c46.jpg); background-size: cover;" class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-1">
+                <div class="col-md-12">
+                    <div class="runes-path-tree-icon">
+                        <div class="runes-path-tree-icon-scale">
+                            <svg class="PathButton__Circles">
+                            <defs>
+                            <linearGradient id="circle-gradient-precision" x1="1" y1="0.6" x2="0" y2="0">
+                            <stop stop-opacity="1" offset="0%" stop-color="#c8aa6e"></stop>
+                            <stop stop-opacity="0" offset="70%" stop-color="#c8aa6e"></stop>
+                            </linearGradient>
+                            </defs>
+                            <circle class="path-icon--moon moon-bottom" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            <circle class="path-icon--moon moon-left" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            <circle class="path-icon--moon moon-right" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            </svg>
+                            <svg class="PathButton__Cup">
+                            <defs>
+                            <linearGradient id="cup-gradient-precision" x1="0" y1="0" x2="0" y2="1">
+                            <stop stop-opacity="0" offset="80%" stop-color="#c8aa6e"></stop>
+                            <stop stop-opacity="1" offset="100%" stop-color="#c8aa6e"></stop>
+                            </linearGradient>
+                            </defs>
+                            <circle cx="42" cy="42" r="42" fill="none" stroke-width="2" stroke="url(#cup-gradient-precision)"></circle>
+                            </svg>
+                            <img class="rune-path--icon TreeImg__TreeImage-sc-12zufps-0 bhFTCx" src="https://blitz-cdn.blitz.gg/runes/precision/tree-precision.png" size="24" currentitem="false">
+                        </div>
+                    </div>
+                </div>
+                <div class="runes-path-spine">
+                    <div class="runes-path-spine-border">
+                        <div class="runes-path-spine-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-right: -50px;">
+                <div class="row">
+                    <div class="col-md-12" style="height: 80px;"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+             
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+             
+                </div>
+                <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+             
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="col-md-12">
+                    <div class="runes-path-tree-icon">
+                        <div class="runes-path-tree-icon-scale">
+                            <svg class="PathButton__Circles">
+                            <defs>
+                            <linearGradient id="circle-gradient-precision" x1="1" y1="0.6" x2="0" y2="0">
+                            <stop stop-opacity="1" offset="0%" stop-color="#c8aa6e"></stop>
+                            <stop stop-opacity="0" offset="70%" stop-color="#c8aa6e"></stop>
+                            </linearGradient>
+                            </defs>
+                            <circle class="path-icon--moon moon-bottom" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            <circle class="path-icon--moon moon-left" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            <circle class="path-icon--moon moon-right" cx="50%" cy="50%" r="43%" fill="none" stroke-width="2" stroke="url(#circle-gradient-precision)"></circle>
+                            </svg>
+                            <svg class="PathButton__Cup">
+                            <defs>
+                            <linearGradient id="cup-gradient-precision" x1="0" y1="0" x2="0" y2="1">
+                            <stop stop-opacity="0" offset="80%" stop-color="#c8aa6e"></stop>
+                            <stop stop-opacity="1" offset="100%" stop-color="#c8aa6e"></stop>
+                            </linearGradient>
+                            </defs>
+                            <circle cx="42" cy="42" r="42" fill="none" stroke-width="2" stroke="url(#cup-gradient-precision)"></circle>
+                            </svg>
+                            <img class="rune-path--icon TreeImg__TreeImage-sc-12zufps-0 bhFTCx" src="https://blitz-cdn.blitz.gg/runes/precision/tree-precision.png" size="24" currentitem="false">
+                        </div>
+                    </div>
+                </div>
+                <div class="runes-path-spine">
+                    <div class="runes-path-spine-border">
+                        <div class="runes-path-spine-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12" style="height: 80px;"></div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+             
+                </div>
+                 <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+             
+                </div>
+                 <div class="row">
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                    <div class="col-md-4"><img class="rune-detail-img" src="https://blitz-cdn.blitz.gg/runes/precision/active/8005.png" currentitem="false"></div>
+                </div>
+                <div class="stats-div">
+                <div class="row stats-class">
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                </div>
+                <div class="row stats-class">
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                </div>
+                <div class="row stats-class">
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                    <div class="col-md-4">
+                      <img class="runes-path-rune-icon RuneImg__RuneImage-xxrdhy-0 knFuMY" data-delay-show="600" src="https://blitz-cdn.blitz.gg/runes/shards/active/5008.png" style="width: 24px; height: 24px; border: 2px solid rgba(255, 255, 255, 0.25); border-radius: 50%; position: relative; cursor: pointer;" currentitem="false">  
+                    </div>
+                </div>
+                    </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <nav class="navbar bg-dark navbar-dark">
     <img class="logo" src="images/logo.png">
     <form class="form-top form-search" method="POST">
@@ -159,17 +330,17 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                     </div>
                                                     <div class="player-spells">
                                                         <?php 
-                                                        $json = file_get_contents('http://ddragon.leagueoflegends.com/cdn/10.9.1/data/pt_BR/summoner.json');
-                                                        $json = json_decode($json,true);
+                                                        $jsonSpells = file_get_contents('http://ddragon.leagueoflegends.com/cdn/10.9.1/data/pt_BR/summoner.json');
+                                                        $jsonSpells = json_decode($jsonSpells,true);
                                                         ?>
-                                                        <img data-toggle="tooltip" data-placement="top" title="<p class='p-tooltip'><?= $json['data'][$spell1]['description'] ?></p>" src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
-                                                        <img data-toggle="tooltip" data-placement="top" title="<?= $json['data'][$spell2]['description'] ?>" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
+                                                        <img title="<?= $jsonSpells['data'][$spell1]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell1]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
+                                                        <img title="<?= $jsonSpells['data'][$spell2]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell2]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
                                                     </div>
                                                     <?php $parkDir = Util::getParksDir($value['stats']['perk0'])?>
                                                     <div class="player-spells">
-                                                        <img src="<?= ImagesPath::getRunesImg($parkDir, $value['stats']['perk0'])?>" size="24" currentitem="false">
+                                                        <img  class="rune" data-toggle="modal" data-target="#exampleModalCenter" src="<?= ImagesPath::getRunesImg($parkDir, $value['stats']['perk0'])?>" size="24" currentitem="false">
                                                         <?php if(array_key_exists('perkSubStyle',$value['stats'])){ ?>
-                                                        <img class="sub-rune" src="<?= ImagesPath::getSubRunesImg($value['stats']['perkSubStyle'])?>" size="24" currentitem="false">
+                                                        <img class="rune sub-rune" src="<?= ImagesPath::getSubRunesImg($value['stats']['perkSubStyle'])?>" size="24" currentitem="false">
                                                         <?php } ?>
                                                     </div>
                                                     <div href="/lol/profile/br1/XzDemonzX">
@@ -181,10 +352,25 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                         <path fill="#4e9996" d="M16 6c0 0 1.018 1.528 2.165 3.693-0.679-0.233-1.407-0.359-2.165-0.359s-1.486 0.126-2.165 0.359c1.147-2.165 2.165-3.693 2.165-3.693zM22.667 16c0-2.318-1.183-4.36-2.979-5.554 2.436-0.744 7.645-3.112 7.645-3.112 0 1.625-1.32 6.77-4.675 9 0.005-0.11 0.008-0.222 0.008-0.333zM22.464 17.636c-0.549 2.177-2.169 3.928-4.267 4.66l1.803 2.704c0-2.667 3.333-5.667 6-7 0 0-1.874-0.187-3.536-0.364zM16 22.667c0.686 0 1.349-0.104 1.972-0.296-0.196 1.401-1.362 3.63-1.972 3.63s-1.776-2.229-1.972-3.63c0.623 0.193 1.285 0.296 1.972 0.296zM13.788 22.291c-0.209-0.074-0.413-0.157-0.612-0.25-1.797-0.842-3.157-2.462-3.645-4.426-1.654 0.182-3.53 0.386-3.53 0.386 2.667 1.333 6 4.333 6 7 0 0 1.236-1.917 1.788-2.709zM9.333 16c0 0.080 0.001 0.159 0.004 0.238-3.352-2.469-4.671-8.159-4.671-8.904 0 0 5.209 2.368 7.645 3.112-1.795 1.195-2.979 3.236-2.979 5.554zM20 16c0 2.209-1.791 4-4 4s-4-1.791-4-4c0-2.209 1.791-4 4-4s4 1.791 4 4z"></path>
                                                         </svg><span class="svg-title">P1</span></div>
                                                     <div class="match-detail-items">
-                                                        <?php for($i = 0; $i <= 6; $i++){ 
+                                                        
+                                                        <?php 
+                                                        $jsonItems = file_get_contents('http://ddragon.leagueoflegends.com/cdn/10.9.1/data/pt_BR/item.json');
+                                                        $jsonItems = json_decode($jsonItems,true);
+                                                        for($i = 0; $i <= 6; $i++){ 
                                                             if($value['stats']['item'.$i.''] != 0){
+                                                            $tags = array("<mana>","</mana>","</scaleLevel>","<scaleLevel>","<rules>","</rules>","<stats>","<aura>","</aura>","</stats>", "<active>", "</active>","<groupLimit>","</groupLimit>","<unique>","</unique>");
+                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace($tags, '',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
+                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace(array('font'), 'span',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
                                                         ?>
-                                                        <img src="<?= ImagesPath::getItemsImg($value['stats']['item'.$i.'']) ?>" alt="" currentitem="false">
+                                                        <img title="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name']  ?>" 
+                                                             data-toggle="popover" 
+                                                             data-trigger="hover" 
+                                                             data-content="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] . '<br><span>Custo: ' . $jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['total'] . '('.$jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['base'].')</span>'  ?> " 
+                                                             data-placement="top" 
+                                                             data-html="true"
+                                                             src="<?= ImagesPath::getItemsImg($value['stats']['item'.$i.'']) ?>" 
+                                                             alt="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name'] ?>" 
+                                                        >
                                                         <?php }else{ ?>
                                                             <div class="empty-item"></div>
                                                         <?php }} ?>
@@ -284,8 +470,8 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                         </div>
                                                     </div>
                                                     <div class="player-spells">
-                                                        <img src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
-                                                        <img src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
+                                                        <img title="<?= $jsonSpells['data'][$spell1]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell1]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
+                                                        <img title="<?= $jsonSpells['data'][$spell2]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell2]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
                                                     </div>
                                                     <?php $parkDir = Util::getParksDir($value['stats']['perk0'])?>
                                                     <div class="player-spells">
@@ -303,8 +489,18 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                     <div class="match-detail-items">
                                                         <?php for($i = 0; $i <= 6; $i++){ 
                                                             if($value['stats']['item'.$i.''] != 0){
+                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace($tags, '',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
+                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace(array('font'), 'span',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
                                                         ?>
-                                                        <img src="<?= ImagesPath::getItemsImg($value['stats']['item'.$i.'']) ?>" alt="" currentitem="false">
+                                                        <img title="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name']  ?>" 
+                                                             data-toggle="popover" 
+                                                             data-trigger="hover" 
+                                                             data-content="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] . '<br><span>Custo: ' . $jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['total'] . '('.$jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['base'].')</span>'  ?> " 
+                                                             data-placement="top" 
+                                                             data-html="true" 
+                                                             src="<?= ImagesPath::getItemsImg($value['stats']['item'.$i.'']) ?>" 
+                                                             alt="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name'] ?>" 
+                                                        >
                                                         <?php }else{ ?>
                                                             <div class="empty-item"></div>
                                                         <?php }} ?>

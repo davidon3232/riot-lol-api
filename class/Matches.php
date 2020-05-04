@@ -74,6 +74,19 @@ class Matches
         return $promise->wait();
 
     }
+    
+    public function getCurrentMatch($summonerId)
+    {
+        $url = 'https://' . $_SESSION['region'] . self::CURRENT_MATCH . $summonerId . '?api_key=' . API_KEY;
+        $client = $this->getFileCachedClient();
+        $request = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $promise = $client->sendAsync($request)->then(function ($response) {
+            return json_decode($response->getBody()->getContents(),true);
+        });
+
+        return $promise->wait();
+
+    }
 
     public function getPlayedTimesChamps($array)
     {

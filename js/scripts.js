@@ -49,5 +49,14 @@ $(document).on('click', '.load-more', function (e) {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({
       html: true
-  })
-})
+  });
+});
+
+$(document).on('click', ".rune", function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+});
+
+$(function () {
+    $('[data-toggle="popover"]').popover({})
+});
