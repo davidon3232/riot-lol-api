@@ -336,7 +336,7 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                         <img title="<?= $jsonSpells['data'][$spell1]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell1]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
                                                         <img title="<?= $jsonSpells['data'][$spell2]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell2]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
                                                     </div>
-                                                    <?php $parkDir = Util::getParksDir($value['stats']['perk0'])?>
+                                                    <?php $parkDir = Util::getParksDir($value['stats']['perkPrimaryStyle'])?>
                                                     <div class="player-spells">
                                                         <img  class="rune" data-toggle="modal" data-target="#exampleModalCenter" src="<?= ImagesPath::getRunesImg($parkDir, $value['stats']['perk0'])?>" size="24" currentitem="false">
                                                         <?php if(array_key_exists('perkSubStyle',$value['stats'])){ ?>
@@ -358,16 +358,16 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                         $jsonItems = json_decode($jsonItems,true);
                                                         for($i = 0; $i <= 6; $i++){ 
                                                             if($value['stats']['item'.$i.''] != 0){
-                                                            $tags = array("<mana>","</mana>","</scaleLevel>","<scaleLevel>","<rules>","</rules>","<stats>","<aura>","</aura>","</stats>", "<active>", "</active>","<groupLimit>","</groupLimit>","<unique>","</unique>");
+                                                            $tags = array("</scaleLevel>","<scaleLevel>","<rules>","</rules>","<stats>","<aura>","</aura>","</stats>", "<active>", "</active>","<groupLimit>","</groupLimit>","<unique>","</unique>");
                                                             $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace($tags, '',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
-                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace(array('font'), 'span',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
+                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace(array('font'), 'p',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
                                                         ?>
                                                         <img title="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name']  ?>" 
                                                              data-toggle="popover" 
-                                                             data-trigger="hover" 
+                                                         
                                                              data-content="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] . '<br><span>Custo: ' . $jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['total'] . '('.$jsonItems['data'][$value['stats']['item'.$i.'']]['gold']['base'].')</span>'  ?> " 
                                                              data-placement="top" 
-                                                             data-html="true"
+                                                          
                                                              src="<?= ImagesPath::getItemsImg($value['stats']['item'.$i.'']) ?>" 
                                                              alt="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name'] ?>" 
                                                         >
@@ -471,9 +471,9 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                     </div>
                                                     <div class="player-spells">
                                                         <img title="<?= $jsonSpells['data'][$spell1]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell1]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell1) ?>" alt="<?= $spell1 ?>">
-                                                        <img title="<?= $jsonSpells['data'][$spell2]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell2]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
+                                                         <img title="<?= $jsonSpells['data'][$spell2]['name'] ?>" data-toggle="popover" data-trigger="hover" data-content="<?= $jsonSpells['data'][$spell2]['description'] ?>" data-placement="top" src="<?= ImagesPath::getSummonerSpell($spell2) ?>" alt="<?= $spell2 ?>">  
                                                     </div>
-                                                    <?php $parkDir = Util::getParksDir($value['stats']['perk0'])?>
+                                                    <?php $parkDir = Util::getParksDir($value['stats']['perkPrimaryStyle'])?>
                                                     <div class="player-spells">
                                                         <img src="<?= ImagesPath::getRunesImg($parkDir, $value['stats']['perk0'])?>" size="24" currentitem="false">
                                                         <img class="sub-rune" src="<?= ImagesPath::getSubRunesImg($value['stats']['perkSubStyle'])?>" size="24" currentitem="false">
@@ -490,7 +490,6 @@ $enemyTeam = $match['participants'][$key]['teamId'] == 100 ? 1 : 0;
                                                         <?php for($i = 0; $i <= 6; $i++){ 
                                                             if($value['stats']['item'.$i.''] != 0){
                                                             $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace($tags, '',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
-                                                            $jsonItems['data'][$value['stats']['item'.$i.'']]['description'] = str_replace(array('font'), 'span',$jsonItems['data'][$value['stats']['item'.$i.'']]['description']);
                                                         ?>
                                                         <img title="<?= $jsonItems['data'][$value['stats']['item'.$i.'']]['name']  ?>" 
                                                              data-toggle="popover" 

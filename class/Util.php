@@ -493,23 +493,36 @@ class Util
         }
     }
     
+    public static function getPerkOrder($parkId){
+        
+        $order = '';
+                
+        if($parkId == 8000){
+            $order = array(8005,8008,8021,8010,9101,9111,8009,9104,9105,9103,8014,8017,8299);
+        }else if($parkId == 8000){
+            $order = array(8012,8024,8028,9923,8126,8139,8143,8136,8120,8138,8135,8134,8105,8106);
+        }else if($parkId == 8000){
+            $order = array(8351,8360,8358,8306,8304,8313,8321,8316,8345,8347,8410,8352);
+        }else if($parkId == 8000){
+            $order = array(8437,8439,8465,8446,8463,8401,8429,8444,8473,8451,8453,8242);
+        }else{
+            $order = array(8214,8229,8230,8224,8226,8275,8210,8234,8233,8237,8232,8236);
+        }
+        
+        return $order;
+    }
+    
     public static function getParksDir($parkId){
         
         $dir = '';
-        
-        $precision = array(8005,8008,8009,8010,8014,8017,8021,8299,9101,9103,9104,9105,9111);
-        $domination = array(8105,8106,8112,8120,8124,8126,8128,8134,8135,8136,8138,8139,9923);
-        $inspiration = array(8304,8306,8313,8316,8321,8345,8347,8351,8352,8358,8360,8410);
-        $resolve = array(8242,8401,8429,8437,8439,8444,8446,8451,8453,8463,8465,8473);
-        $sorcery = array(8210,8214,8224,8226,8229,8230,8232,8233,8234,8236,8237,8275);
-        
-        if(in_array($parkId, $precision)){
+       
+        if($parkId == 8000){
             $dir = 'Precision';
-        }else if(in_array($parkId, $domination)){
+        }else if($parkId == 8100){
             $dir = 'Domination';
-        }else if(in_array($parkId, $inspiration)){
+        }else if($parkId == 8300){
             $dir = 'Inspiration';
-        }else if(in_array($parkId, $resolve)){
+        }else if($parkId == 8400){
             $dir = 'Resolve';
         }else{
             $dir = 'Sorcery';
@@ -517,5 +530,4 @@ class Util
         
         return $dir;
     }
-
 }
