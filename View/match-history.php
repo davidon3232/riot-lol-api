@@ -7,8 +7,8 @@
                     <p class="quantity-color">Ultimas <?= count($matches) ?></p>
                 </div>
                 <div>
-                    <p class="quantity-color-3">2,79 KDA</p>
-                    <p class="quantity-color">8,1 / 6,1 / 8,8</p>
+                    <p class="quantity-color-3"><?= $stats['totalKda'] ?> KDA</p>
+                    <p class="quantity-color"><?= $stats['allKills'] . ' / ' . $stats['allDeaths'] . ' / ' . $stats['allAssists'] ?></p>
                 </div>
             </div>
             <div class="champ-stat-header">

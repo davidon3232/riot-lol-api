@@ -44,7 +44,7 @@ class SummonerCtl{
         $league = $leagueObj->getLeagueBySummonerId($summoner['id'],$server);
         
         $matchesObj = new MatchesCtl();
-        $matchesIds = $matchesObj->getMatchesByAccountId($data['server'] ,$summoner['accountId'] ,10 ,0);
+        $matchesIds = $matchesObj->getMatchesByAccountId($data['server'] ,$summoner['accountId'] ,15 ,0);
         $matches = $matchesObj->getMatchByMatchId($data['server'], $matchesIds['matches']);
         $matches = $this->treatMatchsToView($matches, $summoner);
    
@@ -62,10 +62,19 @@ class SummonerCtl{
         $matches = array();
         $wins = 0;
         $looses = 0;
+        $allKills = 0;
+        $allDeaths = 0;
+        $allAssists = 0;
+
         foreach($data as $key => $value){
+
             $index = Lib\Util::array_search_id($summoner['name'], $value['participantIdentities']);
             $allOfTeam = Lib\Util::findAllOfTeam($value['participants'], $value['participants'][$index]['teamId']);
+            $allKills += $value['participants'][$index]['stats']['kills'];
+            $allDeaths += $value['participants'][$index]['stats']['deaths'];
+            $allAssists += $value['participants'][$index]['stats']['assists'];
             $value['participants'][$index]['stats']['win'] === true ? $wins += 1 : $looses += 1;
+
             $matches[$key] = array(
                 'champName' => Lib\Util::ChIDToName($value['participants'][$index]['championId']),
                 'gameDuration' => gmdate('i:s', $value['gameDuration']),
@@ -84,7 +93,11 @@ class SummonerCtl{
         }
         $stats = array(
             'winsQtd' => $wins,
-            'loosesQtd' => $looses
+            'loosesQtd' => $looses,
+            'totalKda' => Lib\Util::calcAMA($allKills + $allAssists , $allDeaths),
+            'allKills' => number_format($allKills / count($matches),1,'.',''),
+            'allDeaths' => number_format($allDeaths / count($matches),1,'.',''),
+            'allAssists' => number_format($allAssists / count($matches),1,'.','')
         );
         return array('matches' => $matches, 'stats' => $stats);
     }
