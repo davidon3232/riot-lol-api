@@ -34,6 +34,10 @@ class ComposerStaticInit319c24d422e4c3cf730bcf27bd9c130a
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
+        'L' => 
+        array (
+            'League\\Plates\\' => 14,
+        ),
         'K' => 
         array (
             'Kevinrob\\GuzzleCache\\' => 21,
@@ -43,6 +47,10 @@ class ComposerStaticInit319c24d422e4c3cf730bcf27bd9c130a
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+        ),
+        'C' => 
+        array (
+            'CoffeeCode\\Router\\' => 18,
         ),
     );
 
@@ -91,6 +99,10 @@ class ComposerStaticInit319c24d422e4c3cf730bcf27bd9c130a
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'League\\Plates\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/plates/src',
+        ),
         'Kevinrob\\GuzzleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/kevinrob/guzzle-cache-middleware/src',
@@ -106,6 +118,10 @@ class ComposerStaticInit319c24d422e4c3cf730bcf27bd9c130a
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'CoffeeCode\\Router\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coffeecode/router/src',
         ),
     );
 
